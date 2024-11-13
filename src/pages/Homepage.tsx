@@ -1,14 +1,26 @@
 import Banner from "@/custom_components/Banner";
 import FeatureCard from "@/custom_components/FeatureCard";
 import { Features } from "@/Data";
+import { motion } from "framer-motion";
 
 function Homepage() {
   return (
     <>
       <Banner />
-      <div className="mt-16 flex flex-col justify-center items-center mx-5 xl:mx-0">
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+          transition: {
+            delay: 0.5,
+          },
+        }}
+        className="mt-16 flex flex-col justify-center items-center mx-5 xl:mx-0"
+      >
         <div className="max-w-[640px] w-full text-center">
-          <h1 className="text-pink-600 mt-1 text-lg">Our capabilities</h1>
+          <h1 className="text-[#F63D68] mt-1 text-lg">Our capabilities</h1>
           <h1 className="text-3xl font-bold mt-1">
             Why Use Our Color Analysis Tool?
           </h1>
@@ -21,9 +33,9 @@ function Homepage() {
           </p>
         </div>
         <div className="mt-12 grid grid-cols-12 gap-5 md:gap-10 mb-10">
-          {Features.map((item) => {
+          {Features.map((item,idx) => {
             return (
-              <div className="grid col-span-12 sm:col-span-6 lg:col-span-4">
+              <div className="grid col-span-12 sm:col-span-6 lg:col-span-4" key={idx}>
                 <FeatureCard
                   heading={item.heading}
                   description={item.description}
@@ -32,7 +44,7 @@ function Homepage() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }
