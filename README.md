@@ -16,7 +16,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd Attyre-Color-Analyser
 ```
 
 Install dependencies
@@ -28,7 +28,7 @@ Install dependencies
 Start the server
 
 ```bash
-  npm run start
+  npm run dev
 ```
 
 
@@ -52,8 +52,8 @@ Start the server
 
 **Default Colors**: The default colors for skin, hair, and eyes are set when the app starts. However, the user has the ability to change them, allowing for customization of the appearance.
 
-**Font Size**: The font size may differ slightly from the Figma design, and while the font size is not exactly the same as in the Figma file, it can be adjusted in future updates for better alignment.
+**Font Size**: The font size may differ slightly from the Figma design, and while the font style is not exactly the same as in the Figma file, it can be adjusted in future updates for better alignment.
 
 **Modular Components**: The app uses modular components built with TypeScript for better scaling and maintainability, ensuring a flexible and reusable codebase.
 
-**Image Upload Size Assumption**: It is assumed that users will upload small-sized images, approximately 10MB in size. Larger images may cause server performance issues, so it's important to keep the uploads within this size range to prevent server crashes.
+**Image Upload Size Assumption**: It is assumed that users will upload small-sized images, approximately 10MB in size. Larger images may cause performance issues in the app, so it's important to keep the uploads within this size range to ensure smooth functionality. The image URL is saved in `localStorage` and not the image itself, ensuring the data persists even after page reloads.
