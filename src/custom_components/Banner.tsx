@@ -21,7 +21,7 @@ function Banner() {
       }
     };
 
-    const handleDragLeave = (event: Event) => {
+    const handleDragLeave = () => {
       if (dragText) {
         dragText.textContent = "drag or drop";
       }
