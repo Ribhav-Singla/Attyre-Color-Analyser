@@ -1,6 +1,7 @@
 import { AdvancedPreferences } from "@/Data";
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 function SelectColor() {
   const [AdvancedPreferencesOptions, setAdvancedPreferencesOptions] = useState({
@@ -25,9 +26,25 @@ function SelectColor() {
     }
   };
 
+  useEffect(() => {
+    const EyeButton = document.querySelector("#EyeButton");
+    const pickColor = ()=>{
+      
+    }
+
+    if (EyeButton) {
+      EyeButton.addEventListener("click", pickColor);
+    }
+    return () => {
+      if (EyeButton) {
+        EyeButton.removeEventListener("click", pickColor);
+      }
+    };
+  }, []);
+
   return (
-    <div>
-      <div>
+    <div className="mt-5 mb-5">
+      <div className="mx-5 xl:mx-0">
         <h1 className="font-semibold text-2xl">Select Your Colors</h1>
         <p className="mt-2 text-gray-700">
           Use the color picker tool to identify your hair, skin, and eye colors.
@@ -35,22 +52,36 @@ function SelectColor() {
           highlights or shadows. For eyes, select the most prominent color,
           typically found in the center of the iris.
         </p>
-        <div className="mt-5 flex justify-center items-center gap-10">
-          <div className="max-w-[500px] h-[450px] w-full bg-slate-100 flex justify-center items-center">
-            <p>Image</p>
+        <div className="mt-5 flex justify-center items-center gap-5 md:gap-10">
+          <div className="max-w-[300px] h-[300px] sm:max-w-[400px] sm:h-[400px] md:max-w-[500px] md:h-[450px] w-full bg-slate-100 flex justify-center items-center">
+            <img
+              className="object-cover h-full w-full"
+              src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
+              alt=""
+            />
+            {/* <p>Image</p> */}
           </div>
           <div className="flex flex-col justify-center items-center gap-5">
             <div className="flex flex-col gap-1 justify-center items-center">
-                <div className="h-12 w-12 bg-green-600 rounded-full"></div>
-                <h1>Skin</h1>
+              <div
+                className="h-12 w-12 bg-green-600 rounded-full cursor-pointer"
+                id="EyeButton"
+              ></div>
+              <h1>Skin</h1>
             </div>
             <div className="flex flex-col gap-1 justify-center items-center">
-                <div className="h-12 w-12 bg-pink-600 rounded-full"></div>
-                <h1>Hair</h1>
+              <div
+                className="h-12 w-12 bg-pink-600 rounded-full cursor-pointer"
+                id="HairButton"
+              ></div>
+              <h1>Hair</h1>
             </div>
             <div className="flex flex-col gap-1 justify-center items-center">
-                <div className="h-12 w-12 bg-red-600 rounded-full"></div>
-                <h1>Eye</h1>
+              <div
+                className="h-12 w-12 bg-red-600 rounded-full cursor-pointer"
+                id="EyeButton"
+              ></div>
+              <h1>Eye</h1>
             </div>
           </div>
         </div>
@@ -62,8 +93,8 @@ function SelectColor() {
       </div>
       <br />
       <br />
-      <div>
-        <h1 className="font-semibold text-2xl mb-5">
+      <div className="mx-5 xl:mx-0">
+        <h1 className="font-semibold text-xl md:text-2xl mb-5">
           Advanced Preferences - Optional
         </h1>
         {AdvancedPreferences.map((item) => {
@@ -72,7 +103,7 @@ function SelectColor() {
               <h1 className="text-lg font-semibold">{item.label}</h1>
               <p className="text-gray-700 mb-1">{item.description}</p>
               <hr />
-              <div className="mt-2 flex justify-start items-start gap-3">
+              <div className="mt-2 flex flex-wrap justify-start items-start gap-3">
                 {item.options.map((opt) => {
                   return (
                     <Badge

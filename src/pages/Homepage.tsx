@@ -6,10 +6,10 @@ function Homepage() {
   return (
     <>
       <Banner />
-      <div className="mt-10 flex flex-col justify-center items-center">
+      <div className="mt-16 flex flex-col justify-center items-center mx-5 xl:mx-0">
         <div className="max-w-[640px] w-full text-center">
-          <h1 className="text-pink-600 mt-1">Our capabilities</h1>
-          <h1 className="text-xl font-bold mt-1">
+          <h1 className="text-pink-600 mt-1 text-lg">Our capabilities</h1>
+          <h1 className="text-3xl font-bold mt-1">
             Why Use Our Color Analysis Tool?
           </h1>
           <p className="mt-2">
@@ -20,10 +20,10 @@ function Homepage() {
             choose tones that enhance your natural beauty.
           </p>
         </div>
-        <div className="mt-12 grid grid-cols-12 gap-10 mb-10">
+        <div className="mt-12 grid grid-cols-12 gap-5 md:gap-10 mb-10">
           {Features.map((item) => {
             return (
-              <div className="grid col-span-4">
+              <div className="grid col-span-12 sm:col-span-6 lg:col-span-4">
                 <FeatureCard
                   heading={item.heading}
                   description={item.description}

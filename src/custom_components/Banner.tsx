@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { FiUploadCloud } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 function Banner() {
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const dragArea = document.querySelector(".FileContainer");
     const dragText = document.querySelector(".Instruction");
@@ -84,10 +88,9 @@ function Banner() {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="flex bg-slate-50 max-w-[1280px] w-full">
-        <div className="max-w-[640px] w-full bg-slate-50 py-10 px-12">
-          <h1 className="text-3xl font-semibold">Personal Color Analysis</h1>
-          <br />
+      <div className="flex flex-col md:flex-row bg-slate-50 max-w-[1280px] w-full">
+        <div className="max-w-[640px] w-full bg-slate-50 py-5 lg:py-10 px-12">
+          <h1 className="text-[29.5px] font-semibold mb-4">Personal Color Analysis</h1>
           <p>
             Our{" "}
             <span className="text-pink-600">
@@ -109,13 +112,13 @@ function Banner() {
             </p>
             <p>SVG, PNG, JPG or GIF</p>
           </div>
-          <button className="w-full bg-pink-500 text-white p-2 rounded mt-4">
+          <button className="w-full bg-pink-500 text-white p-2 rounded mt-4" onClick={()=>navigate('/selectcolor')}>
             Create your Palette
           </button>
         </div>
 
-        <div className="max-w-[640px] max-h-[500px] w-full h-full flex justify-center items-center">
-          <p>Image</p>
+        <div className="w-full h-[300px] sm:h-[350px] md:max-w-[640px] md:h-[500px] flex justify-center items-center">
+          <img className="object-cover h-full w-full" src="https://img.freepik.com/premium-photo/color-palette-catalogue-with-brush-design-projects_1240525-69515.jpg" alt="" />
         </div>
       </div>
     </div>

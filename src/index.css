@@ -117,3 +117,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .PaletteContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
