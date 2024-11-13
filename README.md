@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Attyre Color Analyser
 
-Currently, two official plugins are available:
+This repository contains the frontend implementation of the **Attyre Color Analyser** project. The purpose of this project is to allow users to upload an image, extract the dominant color from it, and display the color information. The project demonstrates the ability to work with image processing, color extraction, and responsive UI design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Run Locally
 
-- Configure the top-level `parserOptions` property like this:
+Clone the project
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+  git clone https://github.com/Ribhav-Singla/Attyre-Color-Analyser.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Go to the project directory
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+  cd my-project
 ```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+
+## Libraries and Frameworks
+
+**React**: A JavaScript library for building user interfaces.
+
+**Tailwind CSS**: A utility-first CSS framework for creating custom designs with ease.
+
+**Framer Motion**: A library for animations and transitions in React applications.
+
+**React Router DOM**: For handling navigation and routing in the app.
+
+**React Icons**: To use scalable vector icons for the UI.
+
+**Axios**: For making HTTP requests to fetch data (post request).
+##  Design Decisions & Assumptions
+**Mocked API**: The backend is mocked using a small Express app available at [https://attyre-backend.vercel.app/](https://attyre-backend.vercel.app/). This app only supports GET and POST requests at the root (`/`) endpoint for basic testing and interaction.
+
+**Max Width for Content**: To avoid scattering of content on large screens, the body width is set to a maximum of 1280px. This ensures a consistent layout across different screen sizes.
+
+**Default Colors**: The default colors for skin, hair, and eyes are set when the app starts. However, the user has the ability to change them, allowing for customization of the appearance.
+
+**Font Size**: The font size may differ slightly from the Figma design, and while the font size is not exactly the same as in the Figma file, it can be adjusted in future updates for better alignment.
+
+**Modular Components**: The app uses modular components built with TypeScript for better scaling and maintainability, ensuring a flexible and reusable codebase.
+
+**Image Upload Size Assumption**: It is assumed that users will upload small-sized images, approximately 10MB in size. Larger images may cause server performance issues, so it's important to keep the uploads within this size range to prevent server crashes.
